@@ -1,0 +1,30 @@
+body {
+    margin: 5px;
+}
+header {
+    margin-top: 0;
+    flex-wrap: wrap;
+}
+
+#score {
+    float: left;
+    color: rgb(226, 43, 202);
+    font-size: small;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#time {
+    float: right;
+    font-size: small;
+}
+
+
+button {
+    display: grid;
+    grid-template-columns: repeat(2,auto);
+    gap: 10px;
+    color: rgb(253, 241, 230);
+    background: rgb(45, 4, 83);
+    border-radius: 5PX;
+    
+}

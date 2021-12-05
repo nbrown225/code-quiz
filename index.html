@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Quiz</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body> 
+    <header>
+        <h3 id="score">VIEW HIGH SCORES</h3>
+        <h3 id="time">TIME:</h3>
+    </header>
+
+    <br><br>
+    <div>
+            <button class="start-btn" id="start-btn">START QUIZ</button>
+    </div>
+   
+    <div>
+        <h4 class="question-box">QUESTIONS GO HERE</h4>
+    </div>
+   
+    <div class="option-btn" id="option-grid">
+        <button>OPTION 1</button>
+        <button>OPTION 2</button>
+        <button>OPTION 3</button>
+        <button>OPTION 4</button>
+        <ul>
+            <li><button>OPTION 1</button></li>
+            <li><button>OPTION 1</button></li>
+            <li><button>OPTION 1</button></li>
+            <li><button>OPTION 1</button></li>
+        </ul>
+    </div>
+    
+    <div>
+        <button class="next-btn">Next!</button>
+    </div>
+
+<script>
+    const startBtn = document.getElementById('start-btn')
+    const nextBtn = document.getElementById('next-btn')
+
+    const questionBox = document.getElementById('question-box')
+    const optionBox = document.getElementById('option-box')
+
+    let randomQuestion,currectQuestionIndex;
+    let quizScore =0
+
+
+
+    function selectAnswer(e){
+        const selectButton=e.target
+        const correct =selectButton.dataset.correct
+
+        setStatusClass(document.body,correct)
+        Array.from(answerButtonsElement.children).forEach((button)=>{
+            setStatusClass(button,button.dataset.correct)
+        })
+        if(shuffledQuestions.length > correctQuestionIndex +1){
+            nextBtn.classList.remove("hide")
+        }else {
+            startBtn.innerText ="restart"
+            startBtn.classList.remove("hide")
+        }
+    }
+
+    function setStatusClass(element,correct){
+        clearStatusClass(element)
+        if(correct){
+            element.classList.add("YUUUPPP")
+        }else {
+            element.classList.add("NAHH BRO. CHECK YA WORK")
+        }
+    }
+    function clearStatusClass(element){
+        element.classList.remove('correct')
+        element.classList.remove('wrong')
+    }
+    const questionS =[
+        {
+            question: 'WHAT COLOR IS THE SKY?',
+            answers :[
+                { text: 'RED', correct: false},
+                { text: 'GREEN', correct: false},
+                { text: 'YELLO', correct: false},
+                { text: 'BLUE', correct: true}
+            ],
+        },
+        {
+            question: 'TEST QUESTION?',
+            answers :[
+                { text: 'TEST FALSE', correct: false},
+                { text: 'TEST FALSE', correct: false},
+                { text: 'TEST FALSE', correct: false},
+                { text: 'TEST TRUE', correct: true}
+            ],
+        },
+        {
+            question: 'TEST QUESTION?',
+            answers :[
+                { text: 'TEST FALSE', correct: false},
+                { text: 'TEST FALSE', correct: false},
+                { text: 'TEST FALSE', correct: false},
+                { text: 'TEST TRUE', correct: true}
+            ],
+        },
+    ]
+</script>
+<br><br><br><br>
+GIVEN I am taking a code quiz
+WHEN I click the start button
+THEN a timer starts and I am presented with a question
+    <!-- click event -->
+    <!-- event listener -->
+    <!-- event handler to start a timer when button is clicked-->
+
+    WHEN I answer a question
+    THEN I am presented with another question
+    <!-- event listener for correct answer -->
+        <!-- event handler that will move to another question if correct -->
+
+
+    WHEN I answer a question incorrectly
+    THEN time is subtracted from the clock
+    <!-- SOME KIND OF BUTTON OPTION OR CLICKABLE LI?-->
+    <!-- event listener -->
+        <!-- event listener for incorrect -->
+            <!-- event handler that subtracts time for incorrect -->
+
+    WHEN all questions are answered or the timer reaches 0
+    THEN the game is over
+    <!-- event listener for last question answered?-->
+        <!-- event handler to end the game on last answered question-->
+    
+    WHEN the game is over
+    THEN I can save my initials and score
+    <!-- option to save initials-->
+    <!-- option to save score-->
+</body>
+</html>
