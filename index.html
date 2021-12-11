@@ -15,100 +15,27 @@
     </header>
 
     <br><br>
-    <div>
+    <div id="start-quiz">
             <button class="start-btn" id="start-btn">START QUIZ</button>
     </div>
    
-    <div>
-        <h4 class="question-box">QUESTIONS GO HERE</h4>
+    <div id="question-box">
     </div>
    
     <div class="option-btn" id="option-grid">
-        <button>OPTION 1</button>
-        <button>OPTION 2</button>
-        <button>OPTION 3</button>
-        <button>OPTION 4</button>
-        <ul>
-            <li><button>OPTION 1</button></li>
-            <li><button>OPTION 1</button></li>
-            <li><button>OPTION 1</button></li>
-            <li><button>OPTION 1</button></li>
-        </ul>
+        <button id="opt-1">OPTION 1</button>
+        <button id="opt-2">OPTION 2</button>
+        <button id="opt-3">OPTION 3</button>
+        <button id="opt-4">OPTION 4</button>
     </div>
     
     <div>
         <button class="next-btn">Next!</button>
     </div>
+    <div class="end-quiz"></div>
 
-<script>
-    const startBtn = document.getElementById('start-btn')
-    const nextBtn = document.getElementById('next-btn')
+<script src="./assets/js/script.js">
 
-    const questionBox = document.getElementById('question-box')
-    const optionBox = document.getElementById('option-box')
-
-    let randomQuestion,currectQuestionIndex;
-    let quizScore =0
-
-
-
-    function selectAnswer(e){
-        const selectButton=e.target
-        const correct =selectButton.dataset.correct
-
-        setStatusClass(document.body,correct)
-        Array.from(answerButtonsElement.children).forEach((button)=>{
-            setStatusClass(button,button.dataset.correct)
-        })
-        if(shuffledQuestions.length > correctQuestionIndex +1){
-            nextBtn.classList.remove("hide")
-        }else {
-            startBtn.innerText ="restart"
-            startBtn.classList.remove("hide")
-        }
-    }
-
-    function setStatusClass(element,correct){
-        clearStatusClass(element)
-        if(correct){
-            element.classList.add("YUUUPPP")
-        }else {
-            element.classList.add("NAHH BRO. CHECK YA WORK")
-        }
-    }
-    function clearStatusClass(element){
-        element.classList.remove('correct')
-        element.classList.remove('wrong')
-    }
-    const questionS =[
-        {
-            question: 'WHAT COLOR IS THE SKY?',
-            answers :[
-                { text: 'RED', correct: false},
-                { text: 'GREEN', correct: false},
-                { text: 'YELLO', correct: false},
-                { text: 'BLUE', correct: true}
-            ],
-        },
-        {
-            question: 'TEST QUESTION?',
-            answers :[
-                { text: 'TEST FALSE', correct: false},
-                { text: 'TEST FALSE', correct: false},
-                { text: 'TEST FALSE', correct: false},
-                { text: 'TEST TRUE', correct: true}
-            ],
-        },
-        {
-            question: 'TEST QUESTION?',
-            answers :[
-                { text: 'TEST FALSE', correct: false},
-                { text: 'TEST FALSE', correct: false},
-                { text: 'TEST FALSE', correct: false},
-                { text: 'TEST TRUE', correct: true}
-            ],
-        },
-    ]
 </script>
 <br><br><br><br>
 GIVEN I am taking a code quiz
