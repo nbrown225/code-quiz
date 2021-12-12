@@ -1,6 +1,11 @@
-var timer = document.getElementById("time");
+var time = document.getElementById("time");
+var timeRemaining = 100;
+
+
 // html button elements
 var startQuiz = document.getElementById("start-quiz");
+var nextBtn =document.getElementById("next-btn")
+
 var questionBox = document.getElementById("question-box");
 var opt1 = document.getElementById("opt-1");
 var opt2 = document.getElementById("opt-2");
@@ -41,17 +46,28 @@ function showQuestion() {
 startQuiz.addEventListener("click", function() {
     // functions for start go here
     setInterval(function() {
-        var time = 100
-        if (time >= 0) {
-            timer.textContent = "time left" + time
-            time --;
-            console.log(time);
+        timeRemaining--;
+        time.textContent = "blah" + timeRemaining;
+        if(timeRemaining === 0) {
+            clearInterval(timerInterval);
+        }
+    }, 1000);
+})
+
+
+   /* setInterval(function() {
+        if (timeRemaining === 0) {
+            timer.innerHTML = "time left" + timeRemaining;
+            timeRemaining --;
+            //showScore();
+            console.log(timer);
         }
    
     }, 1000);
 })
 function timeStart() {
 }  
+
 
 
 
