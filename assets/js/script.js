@@ -1,4 +1,42 @@
-var time = document.getElementById("time");
+// get dom elements
+
+
+
+// an array for the questions
+
+
+
+
+// an array for options
+
+
+
+
+// show questions function
+
+
+
+// start quiz function
+
+
+
+// timer function
+
+
+
+// score function
+
+
+
+
+
+
+
+
+
+
+
+/* var time = document.getElementById("time");
 var timeRemaining = 100;
 
 
@@ -11,8 +49,10 @@ var opt1 = document.getElementById("opt-1");
 var opt2 = document.getElementById("opt-2");
 var opt3 = document.getElementById("opt-3");
 var opt4 = document.getElementById("opt-4");
+let scorre = 0
+let currentQuestion = 0
 
-var questions = [
+var questionsArray = [
     {
         question1: "What color is the sky",
         answer: "optc",
@@ -35,27 +75,34 @@ var questions = [
 // questions[] say what we're getting it from
 // posts it to the particular button 
 function showQuestion() {
-    questionBox.textContent = questions[0].questions;
+    let question = questionsArray[currentQuestion];
+    $('.input').val(question.title);
+    /*questionBox.textContent = questions[0].questions;
     opt1.innerHTML = questions[0].opt1;
     opt2.innerHTML = questions[0].opt2;
     opt3.innerHTML = questions[0].opt3;
-    opt4.innerHTML = questions[0].opt4;
+    opt4.innerHTML = questions[0].opt4;*/
 }
-
+function score() {
+    
+    
+}
 
 startQuiz.addEventListener("click", function() {
     // functions for start go here
     setInterval(function() {
-        timeRemaining--;
-        time.textContent = "blah" + timeRemaining;
-        if(timeRemaining === 0) {
-            clearInterval(timerInterval);
+        timeRemaining--; //decremented
+        time.textContent = "TIME LEFT: " + timeRemaining;
+        if(timeRemaining <= 0) {
+            clearInterval(setInterval);
         }
     }, 1000);
 })
 
 
-   /* setInterval(function() {
+
+
+   setInterval(function() {
         if (timeRemaining === 0) {
             timer.innerHTML = "time left" + timeRemaining;
             timeRemaining --;
