@@ -1,4 +1,7 @@
 // get dom elements
+    // time and score
+var timer = document.getElementById("time");
+var time = 10;
     // buttons for controls
 const startBtn = document.getElementById("start-btn");
 const nextBtn = document.getElementById("next-btn");
@@ -7,7 +10,8 @@ const questionBoxEl = document.getElementById("question-box")
 const questionEl = document.getElementById("question");
 const answerBoxEl = document.getElementById("answer-box");
 
-
+var randomQuestions;
+var questionIndex;
 
 // an array for the questions
 const questions = [
@@ -65,36 +69,50 @@ const questions = [
 
 // show questions function
 function showHiddenQuestion() {
-    questionBoxEl.innerText = question.question;
-    question.answers.forEach(answer => {
-        const button = document.createElement('button');
-        button.innerText = answer.text;
-        button.classList.add('btn');
-    })
+  
 }
 
 
 
-// event listeners for start and next
+/*/ event listeners for start and next
 startBtn.addEventListener("click", startQuiz);
 
 // start quiz function
 function startQuiz() {
     console.log("this is after click");
+    showHiddenQuestion()
 };
 startQuiz();
 // timer function
 
 
 
-// score function
+/ score function
 
 
 
+function timesUp() {
+    if (time >=0) {
+        window.alert("TIMES UP")
+    }
+}
+*/
 
-
-
-
+startBtn.addEventListener("click", function(event) {
+    console.log("is this working");
+    setInterval(function myTimer() {
+        if (time >= 0) {
+            timer.textContent = "REMAINING TIME: " + time
+            time --;
+            console.log(myTimer);
+        } else {
+            window.alert("TIME'S UP")
+        }
+    }, 1000);
+})
+function timeStart() {
+    
+}
 
 
 
