@@ -1,8 +1,59 @@
 // get dom elements
+    // buttons for controls
+const startBtn = document.getElementById("start-btn");
+const nextBtn = document.getElementById("next-btn");
+    // questions and answers
+const questionBoxEl = document.getElementById("question-box")
+const questionEl = document.getElementById("question");
+const answerBoxEl = document.getElementById("answer-box");
 
 
 
 // an array for the questions
+const questions = [
+    {
+        question: "WHAT IS 4 + 5",
+        answers: [
+            {text: "44", correct: false},
+            {text: "9", correct: true},
+            {text: "651", correct: false},
+            {text: "4", correct: false},
+        ]
+    },
+    {
+        question: "WHAT IS 4.6 x 5",
+        answers: [
+            {text: "15", correct: false},
+            {text: "23", correct: true},
+            {text: "6", correct: false},
+            {text: "89", correct: false},
+        ]
+    }, {
+        question: "WHAT IS 22 / 7",
+        answers: [
+            {text: "3", correct: false},
+            {text: "PI", correct: true},
+            {text: "3.14", correct: true},
+            {text: "4", correct: false},
+        ]
+    }, {
+        question: "WHAT IS 42.4 - 28.541",
+        answers: [
+            {text: "18.5", correct: false},
+            {text: "13.859", correct: true},
+            {text: "96.1", correct: false},
+            {text: "5.44", correct: false},
+        ]
+    }, {
+        question: "WHAT IS 9 x 9",
+        answers: [
+            {text: "654", correct: false},
+            {text: "81", correct: true},
+            {text: "5", correct: false},
+            {text: "654", correct: false},
+        ]
+    },
+];
 
 
 
@@ -13,13 +64,25 @@
 
 
 // show questions function
+function showHiddenQuestion() {
+    questionBoxEl.innerText = question.question;
+    question.answers.forEach(answer => {
+        const button = document.createElement('button');
+        button.innerText = answer.text;
+        button.classList.add('btn');
+    })
+}
 
 
+
+// event listeners for start and next
+startBtn.addEventListener("click", startQuiz);
 
 // start quiz function
-
-
-
+function startQuiz() {
+    console.log("this is after click");
+};
+startQuiz();
 // timer function
 
 
@@ -81,7 +144,7 @@ function showQuestion() {
     opt1.innerHTML = questions[0].opt1;
     opt2.innerHTML = questions[0].opt2;
     opt3.innerHTML = questions[0].opt3;
-    opt4.innerHTML = questions[0].opt4;*/
+    opt4.innerHTML = questions[0].opt4;
 }
 function score() {
     
